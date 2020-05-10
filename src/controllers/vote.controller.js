@@ -1,6 +1,6 @@
 
 import VoteServices from '../services/vote.service';
-
+import CandidateServices from '../services/candidate.service';
 import response from '../helpers/response.helper';
 
 
@@ -20,9 +20,14 @@ class VoteController {
         email,
         votes
       } = req.body;
-
-      const votedCandidate = await VoteServices.createVotes(email,votes);
-      console.log('=-=-=-=-=',votedCandidate);
+      let totalVotes;
+      const candidates = await CandidateServices.findCandidates();
+      candidates.map((candidate) => {
+        if (candidate.email === email) {
+          totalVotes = candidate.votes + 1;
+        }
+      });
+      const votedCandidate = await VoteServices.createVotes(email, totalVotes);
       response.successMessage(
         res,
         'You voted this candidate successfully',
