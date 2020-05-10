@@ -14,7 +14,8 @@ Content-Type: {{contentType}}
   "email": "mujohn87@gmail.com",
   "firstName":"Hillary",
 	"lastName": "clinton",
-	"votes": "46"
+	"votes": "46",
+  "image":"https://res.cloudinary.com/dldhipetm/image/upload/v1589112808/voting%20application/Bclinton_nbbmma.jpg"
 }
 ### vote a candidate
 POST {{BASE_URL}}/api/v1/vote HTTP/1.1

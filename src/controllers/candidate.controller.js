@@ -20,11 +20,13 @@ class candidateController {
         firstName,
         lastName,
         email,
+        image,
         votes
       } = req.body;
       const newCandidate = {
         firstName,
         lastName,
+        image,
         email,
         votes
       };
