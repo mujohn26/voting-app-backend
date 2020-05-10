@@ -18,5 +18,38 @@ class Queries {
       return error;
     }
   }
+
+  /**
+ * voting candidate
+ * @param {object} table table to be searching from
+ * @param {string} email candidate email
+ * @param {integer} votes votes
+ * @returns {array} data the data to be returned.
+ */
+  static async votingCandidate(table, email, votes) {
+    try {
+      const updatedVote = await table.update(
+        { votes },
+        {
+          where: {
+            email
+          }
+        }
+      );
+      return updatedVote;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * searching a candidates
+   * @param {string} table candidates table in database.
+   * @returns {array} data the data to be returned.
+   */
+  static async findAllCandidates(table) {
+    const data = await table.findAll();
+    return data;
+  }
 }
 export default Queries;

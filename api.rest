@@ -6,8 +6,8 @@ GET {{BASE_URL}}/ HTTP/1.1
 ###
 GET {{BASE_URL}}/api HTTP/1.1
 
-### POST Create a new learner
-POST {{BASE_URL}}/api/v1/add-candidate HTTP/1.1
+### POST Create a new candidate
+POST {{BASE_URL}}/api/v1/candidate HTTP/1.1
 Content-Type: {{contentType}}
 
 {
@@ -16,3 +16,13 @@ Content-Type: {{contentType}}
 	"lastName": "clinton",
 	"votes": "46"
 }
+### vote a candidate
+POST {{BASE_URL}}/api/v1/vote HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "mujohn25@gmail.com",
+	"votes": "1"
+}
+### Get candidates
+GET {{BASE_URL}}/api/v1/candidate HTTP/1.1
