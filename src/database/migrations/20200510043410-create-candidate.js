@@ -17,6 +17,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      image: {
+        type: Sequelize.STRING
+      },
       votes: {
         type: Sequelize.INTEGER
       },

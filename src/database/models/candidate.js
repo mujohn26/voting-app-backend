@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
+    image: DataTypes.STRING,
     votes: DataTypes.INTEGER
   }, {});
   Candidate.associate = function(models) {
