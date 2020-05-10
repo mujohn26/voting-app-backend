@@ -7,12 +7,20 @@ import Queries from './Queries';
  */
 class CandidateServices {
   /**
- * creating user query
+ * creating candidate query
  * @param {string} newCandidate new candidate data
  * @returns {array} data the data to be returned.
  */
   static async createCandidate(newCandidate) {
     return Queries.create(db.Candidate, newCandidate);
+  }
+
+  /**
+ * creating candidate query
+ * @returns {array} data the data to be returned.
+ */
+  static async findCandidates() {
+    return Queries.findAllCandidates(db.Candidate);
   }
 }
 export default CandidateServices;

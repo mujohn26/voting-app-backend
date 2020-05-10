@@ -29,8 +29,6 @@ class candidateController {
         votes
       };
       const createdCandidate = await CandidateServices.createCandidate(newCandidate);
-      console.log('==-=-=-=-=-=-',createdCandidate);
-      
       response.successMessage(
         res,
         'Candidate was created successfully',
@@ -45,6 +43,29 @@ class candidateController {
     }
   }
 
+  /**
+   * creating and saving candidate data in the database
+   * @param {Object} req The request object
+   * @param {Object} res The response object
+   * @returns {Object} A user object with selected fields
+   */
+  static async getCandidates(req, res) {
+    try {
+      const candidates = await CandidateServices.findCandidates();
+      response.successMessage(
+        res,
+        'All candidates',
+        201,
+        candidates
+      );
+    } catch (e) {
+      return response.errorMessage(
+        res,
+        e.message,
+        500,
+      );
+    }
+  }
 }
 
 

@@ -1,8 +1,10 @@
 import express from 'express';
-import candidateRoute from './candiate.route';
+import candidateRoute from './candidate.route';
+import voteRoute from './vote.route';
 
 
 const Router = express.Router();
-Router.use('/add-candidate', candidateRoute);
+Router.use('/candidate', candidateRoute);
+Router.use('/vote', voteRoute);
 
 export default Router;
